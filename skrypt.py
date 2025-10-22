@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
-
 import os
+import pwd
 
-def get_username(uid):
-    try:
-        import pwd
-        return pwd.getpwuid(uid).pw_name
-    except Exception:
-        return str(uid)
+def list_proc():
+    print("USER        PID     COMMAND")
+    for pid in os.listdir("/proc"):
+        if not pid.isdigit():
+            continue
+        try:
+            uid = os.stat(f"/proc/{pid}").st_uid
+            user = pwd.getpwuid(uid).pw_name
+            with open(f"/proc/{pid}/comm") as f:
+                cmd = f.readline().strip()
+            print(f"{user:<10} {pid:<7} {cmd}")
+        except (FileNotFoundError, PermissionError):
+            continue
 
-def list_processes():
-    proc_path = '/proc'
-    processes = []
+if __name__ == "__main__":
+    list_proc()
 
-    for pid in os.listdir(proc_path):
-        if pid.isdigit():
-            try:
-                
         
