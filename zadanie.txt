@@ -1,0 +1,31 @@
+Wyświetl wszystkie procesy (polecenie ps axo command), które zawierają spację (tj. zostały prawdopodobnie uruchomione z jakimś parametrem).
+
+ps axo command | grep " "
+
+Wyswietl wszystkie linie z polecenia mount, które zawierają ścieżkę /dev/ lub /sys/ poprzedzoną znakiem spacji.
+
+mount | grep -E " /dev/| /sys/"
+
+Wyświetl wszystkie logi z polecenia journalctl -b, które zawierają słowo PCI lub USB (case-insensitive).
+
+journalctl -b | grep -E "USB | PCI"
+
+Wyświetl linie z pliku numery.txt, które zawierają tylko i wyłącznie męski numer PESEL (bez walidacji cyfry kontrolnej).
+
+cat numery.txt | grep -E "^[0-9]{9}(1|3|5|7|9){1}[0-9]{1}$"
+
+Wyświetl linie z pliku numery.txt, które zawierają tylko i wyłącznie żeński numer PESEL z urodzinami w 1999 roku (bez walidacji cyfry kontrolnej).
+
+cat numery.txt | grep -E "^[99]{2}[0-9]{7}(2|4|6|8|0){1}[0-9]{1}$"
+
+
+
+Wyświetl linie z pliku adresy.txt, które zawierają tylko i wyłącznie adres e-mail, wg następujących założeń:
+
+    nazwa użytkownika - 1-16 liter/cyfr,
+    znak oddzielający - @,
+    domena - dowolna niezerowa ilość małych liter,
+    kropka,
+    TLD (top level domain) - 2 lub więcej małych liter.
+
+
