@@ -1,0 +1,18 @@
+1. Wypisz nagłówek (pierwszą linię) z iris.csv.
+head iris.csv -n 1
+2. Wypisz wszystkie linie oprócz pierwszej z iris.csv (podpowiedź: skorzystaj z man tail).
+tail iris.csv -n +2
+3. Zamień gatunki na liczby (wyświetl poprawione linie, nie zmieniaj treści pliku):
+        “Setosa” na 1,
+        “Versicolor” na 2,
+        “Virginica” na 3.
+4. Wypisz dostępne rodzaje irysów bez powtórzeń i bez cudzysłowów.
+5. Oblicz sumę wartości dla każdego wiersza.
+6. Oblicz średnią wartość drugiej kolumny (sepal.width).
+7. Wypisz całą linię, która ma maksymalną wartość czwartej kolumny (petal.width).
+8. Wypisz nazwę gatunku Irysa, którego pierwsza kolumna (sepal.length) jest większa niż 7.
+9. Przeformatuj plik CSV korzystając z printf w awk na pola oddzielone tabulatorami obcinając liczby do całkowitych.
+
+5       4       1       0       "Setosa"
+10. Zmień losowo kolejność wierszy z danymi o irysach i zapisz je w nowym pliku CSV z nagłówkiem.
+
