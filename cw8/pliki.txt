@@ -1,0 +1,12 @@
+mkdir -p /tmp/data/random
+for i in {1..5}; do
+    dd if=/dev/urandom of=/tmp/data/random/$i bs=5M count=1
+done
+
+mkdir -p /tmp/data/empty
+for i in {1..5}; do
+    dd if=/dev/zero of=/tmp/data/empty/$i bs=5M count=1
+done
+
+mkdir -p /tmp/data/various
+pliki z githuba
