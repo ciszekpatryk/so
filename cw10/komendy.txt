@@ -1,0 +1,2 @@
+g++ -std=c++17 -pthread watki.cpp -o watki
+./watki ascii
