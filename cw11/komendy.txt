@@ -1,0 +1,2 @@
+g++ counting.cpp -o counting -pthread -lm
+./counting ascii
